@@ -34,7 +34,7 @@ If the import does not work follow the steps below.
 
 TROUBLE SHOOTING
 
-Switch Java Compiler to 1.6 if you get VM problems. (Processing should work with Java 1.6, and 1.7)
+Switch Java Compiler to 1.6 if you get VM problems. (Processing should work with Java 1.6, 1.7, and 1.8)
 
 
 
