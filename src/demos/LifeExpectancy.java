@@ -1,19 +1,15 @@
 package demos;
 
-import processing.core.PApplet;
 import de.fhpotsdam.unfolding.UnfoldingMap;
-import de.fhpotsdam.unfolding.utils.MapUtils;
-import de.fhpotsdam.unfolding.providers.*;
-import de.fhpotsdam.unfolding.providers.Google.*;
-
-import java.util.List;
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.GeoJSONReader;
+import de.fhpotsdam.unfolding.marker.Marker;
+import de.fhpotsdam.unfolding.providers.Google;
+import de.fhpotsdam.unfolding.utils.MapUtils;
+import processing.core.PApplet;
 
 import java.util.HashMap;
-
-
-import de.fhpotsdam.unfolding.marker.Marker;
+import java.util.List;
 
 /**
  * Visualizes life expectancy in different countries. 
@@ -74,7 +70,7 @@ public class LifeExpectancy extends PApplet {
 
 	//Helper method to load life expectancy data from file
 	private HashMap<String, Float> loadLifeExpectancyFromCSV(String fileName) {
-		HashMap<String, Float> lifeExpMap = new HashMap<String, Float>();
+		HashMap<String, Float> lifeExpMap = new HashMap<>();
 
 		String[] rows = loadStrings(fileName);
 		for (String row : rows) {

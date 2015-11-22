@@ -1,25 +1,23 @@
 package module3;
 
 //Java utilities libraries
-import java.util.ArrayList;
-//import java.util.Collections;
-//import java.util.Comparator;
-import java.util.List;
-
-//Processing library
-import processing.core.PApplet;
-
-//Unfolding libraries
 import de.fhpotsdam.unfolding.UnfoldingMap;
-import de.fhpotsdam.unfolding.marker.Marker;
 import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
-
-//Parsing library
 import parsing.ParseFeed;
+import processing.core.PApplet;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//import java.util.Collections;
+//import java.util.Comparator;
+//Processing library
+//Unfolding libraries
+//Parsing library
 
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
@@ -45,6 +43,10 @@ public class EarthquakeCityMap extends PApplet {
 	
 	// The map
 	private UnfoldingMap map;
+    private ArrayList<SimplePointMarker> markers;
+    private float HEIGHT_START_MAP = 50;
+    private float WIDTH_START_MAP = 200;
+
 	
 	//feed with magnitude 2.5+ Earthquakes
 	private String earthquakesURL = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.atom";
@@ -54,11 +56,15 @@ public class EarthquakeCityMap extends PApplet {
 		size(950, 600, OPENGL);
 
 		if (offline) {
-		    map = new UnfoldingMap(this, 200, 50, 700, 500, new MBTilesMapProvider(mbTilesString));
-		    earthquakesURL = "2.5_week.atom"; 	// Same feed, saved Aug 7, 2015, for working offline
+		    map = new UnfoldingMap(this, WIDTH_START_MAP, HEIGHT_START_MAP,
+                    700, 500, new MBTilesMapProvider(mbTilesString));
+
+            earthquakesURL = "2.5_week.atom"; 	// Same feed, saved Aug 7, 2015, for working offline
 		}
 		else {
-			map = new UnfoldingMap(this, 200, 50, 700, 500, new Google.GoogleMapProvider());
+			map = new UnfoldingMap(this, WIDTH_START_MAP, HEIGHT_START_MAP,
+                    700, 500, new Google.GoogleMapProvider());
+
 			// IF YOU WANT TO TEST WITH A LOCAL FILE, uncomment the next line
 			//earthquakesURL = "2.5_week.atom";
 		}
@@ -67,7 +73,9 @@ public class EarthquakeCityMap extends PApplet {
 	    MapUtils.createDefaultEventDispatcher(this, map);	
 			
 	    // The List you will populate with new SimplePointMarkers
-	    List<Marker> markers = new ArrayList<Marker>();
+
+	    markers = new ArrayList<>();
+
 
 	    //Use provided parser to collect properties for each earthquake
 	    //PointFeatures have a getLocation method
@@ -75,34 +83,59 @@ public class EarthquakeCityMap extends PApplet {
 	    
 	    // These print statements show you (1) all of the relevant properties 
 	    // in the features, and (2) how to get one property and use it
+        int earthquakesCounter = 0;
+
 	    if (earthquakes.size() > 0) {
-	    	PointFeature f = earthquakes.get(0);
-	    	System.out.println(f.getProperties());
-	    	Object magObj = f.getProperty("magnitude");
-	    	float mag = Float.parseFloat(magObj.toString());
-	    	// PointFeatures also have a getLocation method
+
+            for (PointFeature quake : earthquakes) {
+
+                markers.add(earthquakesCounter, createMarker(quake));
+                earthquakesCounter += 1;
+                // PointFeatures also have a getLocation method
+            }
+
 	    }
 	    
 	    // Here is an example of how to use Processing's color method to generate 
 	    // an int that represents the color yellow.  
-	    int yellow = color(255, 255, 0);
-	    
-	    //TODO: Add code here as appropriate
+	    // int yellow = color(255, 255, 0);
+
 	}
 		
 	// A suggested helper method that takes in an earthquake feature and 
 	// returns a SimplePointMarker for that earthquake
-	// TODO: Implement this method and call it from setUp, if it helps
-	private SimplePointMarker createMarker(PointFeature feature)
+	public SimplePointMarker createMarker(PointFeature quake)
 	{
 		// finish implementing and use this method, if it helps.
-		return new SimplePointMarker(feature.getLocation());
+        MagnitudeScale magType;
+        // System.out.println(quake.getProperties());
+        Object magObj = quake.getProperty("magnitude");
+        float mag = Float.parseFloat(magObj.toString());
+
+        if (mag < THRESHOLD_LIGHT) {
+            magType = MagnitudeScale.Minor;
+        }
+        else if ( (mag>=THRESHOLD_LIGHT) && (mag<THRESHOLD_MODERATE)) {
+            magType = MagnitudeScale.Medium;
+        }
+        else {
+            magType = MagnitudeScale.Major;
+        }
+
+        SimplePointMarker marker = new SimplePointMarker(quake.getLocation());
+
+        marker.setColor(magType.getColor());
+        marker.setRadius(magType.getSize());
+
+		return marker;
 	}
 	
 	public void draw() {
 	    background(10);
 	    map.draw();
+        markers.forEach(map::addMarker);
 	    addKey();
+
 	}
 
 
@@ -111,6 +144,43 @@ public class EarthquakeCityMap extends PApplet {
 	private void addKey() 
 	{	
 		// Remember you can use Processing's graphics methods here
+        float START_POS_X = 20;
+        float START_POS_Y = HEIGHT_START_MAP;
+        float LEGEND_WIDTH = WIDTH_START_MAP - START_POS_X - 10;
+        float LEGEND_HEIGHT = 300;
+
+
+        fill(color(255, 255, 255));
+        rect(START_POS_X,START_POS_Y,LEGEND_WIDTH,LEGEND_HEIGHT);
+
+
+        float CIRCLE_START_POS_X = (float) (START_POS_X+LEGEND_WIDTH*0.2);
+        float TEXT_START_POS_X = CIRCLE_START_POS_X + 15;
+        float POS_Y = START_POS_Y + 30;
+
+        int black = color(0,0,0);
+
+        fill(black);
+        textSize(14);
+        text("Earthquake Key", CIRCLE_START_POS_X, POS_Y);
+
+        textSize(12);
+        for (MagnitudeScale scaleProperty : MagnitudeScale.values()) {
+
+            POS_Y = POS_Y + 50;
+
+            fill(scaleProperty.getColor());
+
+            ellipse(CIRCLE_START_POS_X,
+                    POS_Y,
+                    scaleProperty.getSize(),
+                    scaleProperty.getSize());
+
+            fill(black);
+            text(scaleProperty.getDescription(),
+                    TEXT_START_POS_X,
+                    POS_Y + scaleProperty.getSize()/2);
+        }
 	
 	}
 }
