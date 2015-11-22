@@ -80,26 +80,13 @@ public class HelloWorld extends PApplet
 		
 		// This line makes the map interactive
 		MapUtils.createDefaultEventDispatcher(this, map1);
-		
-		// TODO: Add code here that creates map2 
-		// Then you'll modify draw() below
 
 	}
 
 	/** Draw the Applet window.  */
 	public void draw() {
-		// So far we only draw map1...
-		// TODO: Add code so that both maps are displayed
 		map1.draw();
         map2.draw();
 	}
 
-    public boolean draw(String a) {
-        // So far we only draw map1...
-        // TODO: Add code so that both maps are displayed
-        map1.draw();
-        map2.draw();
-
-        return true;
-    }
 }
