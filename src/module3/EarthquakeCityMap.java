@@ -154,13 +154,13 @@ public class EarthquakeCityMap extends PApplet {
         float mag = Float.parseFloat(magObj.toString());
 
         if (mag < THRESHOLD_LIGHT) {
-            magType = MagnitudeScale.Minor;
+            magType = MagnitudeScale.MINOR;
         }
         else if ( (mag>=THRESHOLD_LIGHT) && (mag<THRESHOLD_MODERATE)) {
-            magType = MagnitudeScale.Medium;
+            magType = MagnitudeScale.MEDIUM;
         }
         else {
-            magType = MagnitudeScale.Major;
+            magType = MagnitudeScale.MAJOR;
         }
 
         SimplePointMarker marker = new SimplePointMarker(quake.getLocation());
@@ -184,7 +184,6 @@ public class EarthquakeCityMap extends PApplet {
 	// TODO: Implement this method to draw the key
 	private void addKey() 
 	{
-
         // Remember you can use Processing's graphics methods here
         float START_POS_X = 20;
         float START_POS_Y = HEIGHT_START_MAP;

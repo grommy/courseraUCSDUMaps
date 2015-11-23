@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d640001-287b-4c13-9e84-2779e9ab6ebf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/applicationData.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/applicationProperties.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module3/EarthquakeCityMap.class" afterPath="$PROJECT_DIR$/build/module3/EarthquakeCityMap.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module3/EarthquakeCityMap.java" afterPath="$PROJECT_DIR$/src/module3/EarthquakeCityMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UCSDUnfoldingMaps.iml" afterPath="$PROJECT_DIR$/UCSDUnfoldingMaps.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module3/MagnitudeScale.java" afterPath="$PROJECT_DIR$/src/module3/MagnitudeScale.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="UCSDUnfoldingMaps.iws" />
@@ -52,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EarthquakeCityMap.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EarthquakeCityMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module3/EarthquakeCityMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.22776572">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,53 +72,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileInputStream.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/io/FileInputStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PGraphicsJava2D.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/core.jar!/processing/core/PGraphicsJava2D.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.11111111">
-              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-              <folding>
-                <element signature="e#5002#5003#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MagnitudeScale.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MagnitudeScale.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/module3/MagnitudeScale.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-              <folding>
-                <element signature="e#90#91#0" expanded="false" />
-                <element signature="e#138#139#0" expanded="false" />
-                <element signature="e#169#170#0" expanded="false" />
-                <element signature="e#201#202#0" expanded="false" />
-                <element signature="e#242#243#0" expanded="false" />
-                <element signature="e#284#285#0" expanded="false" />
-                <element signature="e#336#337#0" expanded="false" />
-                <element signature="e#381#382#0" expanded="false" />
-                <element signature="e#412#413#0" expanded="false" />
-                <element signature="e#445#446#0" expanded="false" />
-                <element signature="e#486#487#0" expanded="false" />
-                <element signature="e#533#534#0" expanded="false" />
-                <element signature="e#584#585#0" expanded="false" />
-                <element signature="e#628#629#0" expanded="false" />
-                <element signature="e#659#660#0" expanded="false" />
-                <element signature="e#692#693#0" expanded="false" />
-                <element signature="e#733#734#0" expanded="false" />
-                <element signature="e#780#781#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.60954446">
+              <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,12 +132,12 @@
         <option value="$PROJECT_DIR$/src/demos/LifeExpectancy.java" />
         <option value="$PROJECT_DIR$/src/module3/CustomMarker.java" />
         <option value="$PROJECT_DIR$/src/module3/MarkerConfig.java" />
-        <option value="$PROJECT_DIR$/src/module3/MagnitudeScale.java" />
         <option value="$PROJECT_DIR$/src/module1/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/demos/MyPApplet.java" />
         <option value="$PROJECT_DIR$/data/application.properties" />
-        <option value="$PROJECT_DIR$/src/module3/EarthquakeCityMap.java" />
         <option value="$PROJECT_DIR$/data/applicationData.properties" />
+        <option value="$PROJECT_DIR$/src/module3/EarthquakeCityMap.java" />
+        <option value="$PROJECT_DIR$/src/module3/MagnitudeScale.java" />
       </list>
     </option>
   </component>
@@ -627,7 +584,7 @@
       <workItem from="1447603985724" duration="2188000" />
       <workItem from="1447610990818" duration="680000" />
       <workItem from="1448108695229" duration="19228000" />
-      <workItem from="1448282169906" duration="4796000" />
+      <workItem from="1448282169906" duration="5031000" />
     </task>
     <task id="LOCAL-00001" summary="week 2 completed">
       <created>1448219023733</created>
@@ -665,11 +622,17 @@
       <option name="project" value="LOCAL" />
       <updated>1448222940379</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="property file support implemented">
+      <created>1448289724018</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1448289724018</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27562000" />
+    <option name="totallyTimeSpent" value="27797000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -728,7 +691,8 @@
     <MESSAGE value="week 1 completed" />
     <MESSAGE value="week 1 small changes" />
     <MESSAGE value="week 1. removed mess" />
-    <option name="LAST_COMMIT_MESSAGE" value="week 1. removed mess" />
+    <MESSAGE value="property file support implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="property file support implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -771,26 +735,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding>
-            <element signature="e#90#91#0" expanded="false" />
-            <element signature="e#138#139#0" expanded="false" />
-            <element signature="e#169#170#0" expanded="false" />
-            <element signature="e#201#202#0" expanded="false" />
-            <element signature="e#242#243#0" expanded="false" />
-            <element signature="e#284#285#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-            <element signature="e#381#382#0" expanded="false" />
-            <element signature="e#412#413#0" expanded="false" />
-            <element signature="e#445#446#0" expanded="false" />
-            <element signature="e#486#487#0" expanded="false" />
-            <element signature="e#533#534#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="false" />
-            <element signature="e#628#629#0" expanded="false" />
-            <element signature="e#659#660#0" expanded="false" />
-            <element signature="e#692#693#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-            <element signature="e#780#781#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -985,33 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module3/MagnitudeScale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding>
-            <element signature="e#90#91#0" expanded="false" />
-            <element signature="e#138#139#0" expanded="false" />
-            <element signature="e#169#170#0" expanded="false" />
-            <element signature="e#201#202#0" expanded="false" />
-            <element signature="e#242#243#0" expanded="false" />
-            <element signature="e#284#285#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-            <element signature="e#381#382#0" expanded="false" />
-            <element signature="e#412#413#0" expanded="false" />
-            <element signature="e#445#446#0" expanded="false" />
-            <element signature="e#486#487#0" expanded="false" />
-            <element signature="e#533#534#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="false" />
-            <element signature="e#628#629#0" expanded="false" />
-            <element signature="e#659#660#0" expanded="false" />
-            <element signature="e#692#693#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-            <element signature="e#780#781#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/demos/MyPApplet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1025,16 +943,6 @@
         <state vertical-scroll-proportion="0.8524946">
           <caret line="1302" column="23" selection-start-line="1302" selection-start-column="23" selection-end-line="1302" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/core.jar!/processing/core/PGraphicsJava2D.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.11111111">
-          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding>
-            <element signature="e#5002#5003#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1106,11 +1014,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/io/FileInputStream.java">
+    <entry file="file://$PROJECT_DIR$/src/module3/EarthquakeCityMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/io/FileInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6659436">
           <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/core.jar!/processing/core/PGraphicsJava2D.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0069124424">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding>
+            <element signature="e#5002#5003#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,13 +1050,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module3/EarthquakeCityMap.java">
+    <entry file="file://$PROJECT_DIR$/src/module3/MagnitudeScale.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.22776572">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.60954446">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

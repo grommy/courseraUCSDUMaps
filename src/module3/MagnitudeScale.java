@@ -2,7 +2,7 @@ package module3;
 
 
 public enum MagnitudeScale {
-    Minor {
+    MINOR {
         public int getColor() {
             return -16776961;  //blue
         }
@@ -13,7 +13,7 @@ public enum MagnitudeScale {
             return "Below 4.0";
         }
     },
-    Medium {
+    MEDIUM {
         public int getColor() {
             return -256;  //yellow
         }
@@ -24,7 +24,7 @@ public enum MagnitudeScale {
             return "4.0+ magnitude";
         }
     },
-    Major {
+    MAJOR {
         public int getColor() {
             return -65536;  //red
         }
