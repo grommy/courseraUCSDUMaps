@@ -1,6 +1,7 @@
 package module3;
 
 //Java utilities libraries
+
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
@@ -9,9 +10,13 @@ import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 import parsing.ParseFeed;
 import processing.core.PApplet;
+import processing.data.JSONObject;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 //import java.util.Collections;
 //import java.util.Comparator;
@@ -51,8 +56,44 @@ public class EarthquakeCityMap extends PApplet {
 	//feed with magnitude 2.5+ Earthquakes
 	private String earthquakesURL = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.atom";
 
-	
-	public void setup() {
+	private void getProperties() {
+        Properties prop = new Properties();
+        Reader propertyReader = null;
+        JSONObject jsonInput;
+
+        String PATH_TO_PROPERTY_FILE = "applicationData.properties";
+
+        String PATH_TO_JSON_FILE = "applicationProperties.json";
+
+        try {
+            propertyReader = createReader(PATH_TO_PROPERTY_FILE);
+            jsonInput = loadJSONObject(PATH_TO_JSON_FILE);
+
+            // load a properties file
+
+            prop.load(propertyReader);
+
+            // get the property value and print it out
+            System.out.println(prop.getProperty("my"));
+            System.out.println(jsonInput.getString("my", "Error"));
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (propertyReader != null) {
+                try {
+                    propertyReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void setup() {
+
+        getProperties();
+
 		size(950, 600, OPENGL);
 
 		if (offline) {
@@ -142,8 +183,9 @@ public class EarthquakeCityMap extends PApplet {
 	// helper method to draw key in GUI
 	// TODO: Implement this method to draw the key
 	private void addKey() 
-	{	
-		// Remember you can use Processing's graphics methods here
+	{
+
+        // Remember you can use Processing's graphics methods here
         float START_POS_X = 20;
         float START_POS_Y = HEIGHT_START_MAP;
         float LEGEND_WIDTH = WIDTH_START_MAP - START_POS_X - 10;
