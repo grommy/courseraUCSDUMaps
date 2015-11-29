@@ -4,6 +4,11 @@ import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import processing.core.PGraphics;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /** Implements a visual marker for earthquakes on an earthquake map
  * 
  * @author UC San Diego Intermediate Software Development MOOC team
@@ -64,7 +69,17 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		// call abstract method implemented in child class to draw marker shape
 		drawEarthquake(pg, x, y);
 		
-		// OPTIONAL TODO: draw X over marker if within past day		
+		// OPTIONAL TODO: draw X over marker if within past day
+        Set<List<String>> dayPeriod  = new HashSet<>();
+        dayPeriod.add(Arrays.asList("Past Hour", "Past Week"));
+
+
+        if(dayPeriod.contains(getStringProperty("age"))) {
+            pg.line(x-5, y-5, x + 5, y + 5);
+            pg.line(x+5, y-5, x - 5, y + 5);
+
+
+        }
 		
 		// reset to previous styling
 		pg.popStyle();
@@ -73,10 +88,21 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	
 	// determine color of marker from depth
 	// We suggest: Deep = red, intermediate = blue, shallow = yellow
-	// But this is up to you, of course.
+    // But this is up to you, of course.
 	// You might find the getters below helpful.
 	private void colorDetermine(PGraphics pg) {
-		//TODO: Implement this method
+
+		int YELLOW = pg.color(255, 255, 0);
+		int RED = pg.color(255, 0, 0);
+		int BLUE = pg.color(0, 0, 255);
+
+		if (getDepth() <= 70) {
+			pg.fill(YELLOW);
+		}
+		else if (getDepth() > 300) {
+			pg.fill(RED);
+		}
+		else pg.fill(BLUE);
 	}
 	
 	
