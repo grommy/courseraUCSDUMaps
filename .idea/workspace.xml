@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d640001-287b-4c13-9e84-2779e9ab6ebf" name="Default" comment="module 4">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/module4/classHierarhy.uml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module4/CityMarker.class" afterPath="$PROJECT_DIR$/build/module4/CityMarker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module3/EarthquakeCityMap.class" afterPath="$PROJECT_DIR$/build/module3/EarthquakeCityMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module4/EarthquakeCityMap.class" afterPath="$PROJECT_DIR$/build/module4/EarthquakeCityMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module4/EarthquakeMarker.class" afterPath="$PROJECT_DIR$/build/module4/EarthquakeMarker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module4/LandQuakeMarker.class" afterPath="$PROJECT_DIR$/build/module4/LandQuakeMarker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/module4/OceanQuakeMarker.class" afterPath="$PROJECT_DIR$/build/module4/OceanQuakeMarker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module4/CityMarker.java" afterPath="$PROJECT_DIR$/src/module4/CityMarker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module4/EarthquakeCityMap.java" afterPath="$PROJECT_DIR$/src/module4/EarthquakeCityMap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module4/EarthquakeMarker.java" afterPath="$PROJECT_DIR$/src/module4/EarthquakeMarker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module4/LandQuakeMarker.java" afterPath="$PROJECT_DIR$/src/module4/LandQuakeMarker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/module4/OceanQuakeMarker.java" afterPath="$PROJECT_DIR$/src/module4/OceanQuakeMarker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9d640001-287b-4c13-9e84-2779e9ab6ebf" name="Default" comment="" />
     <ignored path="UCSDUnfoldingMaps.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -662,7 +648,7 @@
       <workItem from="1447610990818" duration="680000" />
       <workItem from="1448108695229" duration="19228000" />
       <workItem from="1448282169906" duration="5073000" />
-      <workItem from="1448789320378" duration="14786000" />
+      <workItem from="1448789320378" duration="15025000" />
     </task>
     <task id="LOCAL-00001" summary="week 2 completed">
       <created>1448219023733</created>
@@ -712,11 +698,17 @@
       <option name="project" value="LOCAL" />
       <updated>1448289892539</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="module 4">
+      <created>1448825460448</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1448825460448</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42625000" />
+    <option name="totallyTimeSpent" value="42864000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -729,13 +721,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="819" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32737276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32737276" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -748,7 +740,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.4918033" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32737276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32737276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="123" width="1240" height="619" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
