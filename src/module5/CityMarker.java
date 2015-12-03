@@ -3,7 +3,6 @@ package module5;
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.geo.Location;
-import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import processing.core.PConstants;
 import processing.core.PGraphics;
 
@@ -16,7 +15,7 @@ import processing.core.PGraphics;
 // TODO: Change SimplePointMarker to CommonMarker as the very first thing you do 
 // in module 5 (i.e. CityMarker extends CommonMarker).  It will cause an error.
 // That's what's expected.
-public class CityMarker extends SimplePointMarker {
+public class CityMarker extends CommonMarker {
 	
 	public static int TRI_SIZE = 5;  // The size of the triangle marker
 	
@@ -31,27 +30,45 @@ public class CityMarker extends SimplePointMarker {
 		// and "population" (population, in millions)
 	}
 
-	
-	/**
-	 * Implementation of method to draw marker on the map.
-	 */
-	public void draw(PGraphics pg, float x, float y) {
-		// Save previous drawing style
-		pg.pushStyle();
-		
-		// IMPLEMENT: drawing triangle for each city
-		pg.fill(150, 30, 30);
-		pg.triangle(x, y-TRI_SIZE, x-TRI_SIZE, y+TRI_SIZE, x+TRI_SIZE, y+TRI_SIZE);
-		
-		// Restore previous drawing style
-		pg.popStyle();
+
+	@Override
+	public void drawMarker(PGraphics pg, float x, float y) {
+        // Save previous drawing style
+        pg.pushStyle();
+
+        // IMPLEMENT: drawing triangle for each city
+        pg.fill(150, 30, 30);
+        pg.triangle(x, y-TRI_SIZE, x-TRI_SIZE, y+TRI_SIZE, x+TRI_SIZE, y+TRI_SIZE);
+
+        // Restore previous drawing style
+        pg.popStyle();
+
 	}
-	
+
 	/** Show the title of the city if this marker is selected */
 	public void showTitle(PGraphics pg, float x, float y)
 	{
-		
-		// TODO: Implement this method
+
+        // Save previous drawing style
+        pg.pushStyle();
+
+        float xTool = x + 5;
+        float yTool = y + 5;
+
+        pg.textAlign(PConstants.LEFT, PConstants.CENTER);
+        pg.textSize(12);
+        String label = getCity() + ", " + getCountry() + ", " + getPopulation();
+        float width = pg.textWidth(label);
+
+        pg.fill(pg.color(255, 255, 255));
+        pg.rect(xTool+10, yTool+10, 20+width, 15);
+
+        pg.fill(pg.color(0, 0, 0));
+
+        pg.text(label, xTool + 15, yTool + 15);
+
+        // Restore previous drawing style
+        pg.popStyle();
 	}
 	
 	

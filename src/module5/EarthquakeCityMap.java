@@ -1,8 +1,5 @@
 package module5;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.GeoJSONReader;
@@ -16,6 +13,10 @@ import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 import parsing.ParseFeed;
 import processing.core.PApplet;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
@@ -143,10 +144,27 @@ public class EarthquakeCityMap extends PApplet {
 	// set the lastSelected to be the first marker found under the cursor
 	// Make sure you do not select two markers.
 	// 
-	private void selectMarkerIfHover(List<Marker> markers)
-	{
-		// TODO: Implement this method
-	}
+	private boolean selectMarkerIfHover(List<Marker> markers) {
+
+        boolean exists = false;
+        for (Marker marker : markers) {
+            if (marker.isInside(map, mouseX, mouseY)) {
+
+                // clear the last selection
+                if (lastSelected != null) {
+                    lastSelected.setSelected(false);
+                    lastSelected = null;
+
+                }
+
+                marker.setSelected(true);
+                lastSelected = (CommonMarker) marker;
+                exists = true;
+                break;
+            }
+        }
+        return exists;
+    }
 	
 	/** The event handler for mouse clicks
 	 * It will display an earthquake and its threat circle of cities
@@ -154,13 +172,92 @@ public class EarthquakeCityMap extends PApplet {
 	 * where the city is in the threat circle
 	 */
 	@Override
-	public void mouseClicked()
-	{
-		// TODO: Implement this method
+	public void mouseClicked() {
 		// Hint: You probably want a helper method or two to keep this code
 		// from getting too long/disorganized
+
+		if (lastClicked != null){
+			unhideMarkers();
+            lastClicked = null;
+		}
+		else {
+
+            if (selectMarkerIfHover(cityMarkers)) {
+                lastClicked = lastSelected;
+                hideMarkersSameType(lastClicked);
+                for (Marker quake : quakeMarkers) {
+                    if (!checkThreatToPoint((EarthquakeMarker) quake, (CityMarker)lastClicked)) {
+                        quake.setHidden(true);
+                    }
+                    else quake.setHidden(false);
+                }
+
+
+            }
+
+            else if (selectMarkerIfHover(quakeMarkers)) {
+                lastClicked = lastSelected;
+                hideMarkersSameType(lastClicked);
+                for (Marker city: cityMarkers) {
+                    if (!checkThreatToPoint((EarthquakeMarker) lastClicked, (CityMarker) city)) {
+                        city.setHidden(true);
+                    }
+                    else city.setHidden(false);
+                }
+            }
+
+
+
+		}
+
 	}
-	
+
+	private boolean checkThreatToPoint(EarthquakeMarker quake, CityMarker city, boolean flag) {
+		double distance = quake.getDistanceTo(city.getLocation());
+		float magnitude = quake.getMagnitude();
+		if (distance <= 20*pow(1.8f,(2*magnitude - 5))) {
+			return true;
+		}
+		else return false;
+	}
+
+    private boolean checkThreatToPoint(Marker marker1, Marker marker2) {
+        double distance = marker1.getDistanceTo(marker2.getLocation());
+        float magnitude = 0;
+
+        if (marker1 instanceof EarthquakeMarker) {
+            magnitude = ((EarthquakeMarker) marker1).getMagnitude();
+        }
+        else magnitude = ((EarthquakeMarker) marker2).getMagnitude();
+
+
+        if (distance <= 20*pow(1.8f,(2*magnitude - 5))) {
+            return true;
+        }
+        else return false;
+    }
+
+    private boolean hideMarkersSameType(Marker marker) {
+        List<Marker> listToHide = null;
+
+        if (marker instanceof CityMarker) {
+            listToHide = cityMarkers;
+        }
+        else if (marker instanceof EarthquakeMarker) {
+            listToHide = quakeMarkers;
+        }
+
+        else {
+            return false;
+        }
+
+        for(Marker otherMarker : listToHide) {
+            if (!Objects.equals(otherMarker, marker))
+                otherMarker.setHidden(true);
+        }
+
+        return true;
+    }
 	
 	// loop over and unhide all markers
 	private void unhideMarkers() {
