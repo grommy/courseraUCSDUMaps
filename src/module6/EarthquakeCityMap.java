@@ -1,9 +1,5 @@
 package module6;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.GeoJSONReader;
@@ -17,6 +13,10 @@ import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 import parsing.ParseFeed;
 import processing.core.PApplet;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /** EarthquakeCityMap
  * An application with an interactive map displaying earthquake data.
@@ -123,9 +123,11 @@ public class EarthquakeCityMap extends PApplet {
 	    //           for their geometric properties
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
-	    
-	    
-	}  // End setup
+        System.out.println("Print sorted array");
+        sortAndPrint(20);
+
+
+    }  // End setup
 	
 	
 	public void draw() {
@@ -136,10 +138,17 @@ public class EarthquakeCityMap extends PApplet {
 	}
 	
 	
-	// TODO: Add the method:
-	//   private void sortAndPrint(int numToPrint)
-	// and then call that method from setUp
-	
+	// Implemented
+	   private void sortAndPrint(int numToPrint) {
+
+           Object[] a;
+           a = quakeMarkers.toArray();
+           Arrays.sort(a);
+           for (int i=0; i<min(a.length,numToPrint); i++) {
+               System.out.println(a[i]);
+           }
+       }
+
 	/** Event handler that gets called automatically when the 
 	 * mouse moves.
 	 */
@@ -201,24 +210,49 @@ public class EarthquakeCityMap extends PApplet {
 	// and respond appropriately
 	private void checkCitiesForClick()
 	{
-		if (lastClicked != null) return;
+		float totalMagnitude;
+        int quakesCounter;
+        if (lastClicked != null) return;
 		// Loop over the earthquake markers to see if one of them is selected
 		for (Marker marker : cityMarkers) {
-			if (!marker.isHidden() && marker.isInside(map, mouseX, mouseY)) {
+
+            if (!marker.isHidden() && marker.isInside(map, mouseX, mouseY)) {
 				lastClicked = (CommonMarker)marker;
+
 				// Hide all the other earthquakes and hide
 				for (Marker mhide : cityMarkers) {
 					if (mhide != lastClicked) {
 						mhide.setHidden(true);
 					}
 				}
+
+                totalMagnitude = 0;
+                quakesCounter = 0;
+
 				for (Marker mhide : quakeMarkers) {
 					EarthquakeMarker quakeMarker = (EarthquakeMarker)mhide;
 					if (quakeMarker.getDistanceTo(marker.getLocation()) 
 							> quakeMarker.threatCircle()) {
 						quakeMarker.setHidden(true);
+
 					}
+                    else {
+                        totalMagnitude += ((EarthquakeMarker) mhide).getMagnitude();
+                        quakesCounter++;
+                    }
 				}
+
+
+                if (marker instanceof CityMarker) {
+                    CityMarker clickedCityMarker = (CityMarker) marker;
+                    clickedCityMarker.setTotalNumberOfQaukesNearby(quakesCounter);
+                    if (quakesCounter > 0) {
+                        clickedCityMarker.setAvgQuakesNearbyMagnitude(totalMagnitude / quakesCounter);
+                    }
+                    clickedCityMarker.setAdditionalInfoEnabled(true);
+                }
+
+
 				return;
 			}
 		}		
